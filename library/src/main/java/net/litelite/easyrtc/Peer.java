@@ -45,8 +45,11 @@ public class Peer implements LocalIceCandidateHandler.Listener {
 
     public static boolean rtcInitialized = false;
     public static void initializeRtcIfNeeded(Context context) {
-        PeerConnectionFactory.initializeAndroidGlobals(context, true);
-        PeerConnectionFactory.initializeFieldTrials("");
+        if (!rtcInitialized) {
+            PeerConnectionFactory.initializeAndroidGlobals(context, true);
+            PeerConnectionFactory.initializeFieldTrials("");
+            rtcInitialized = true;
+        }
     }
 
     public static class Builder {
