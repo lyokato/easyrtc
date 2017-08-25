@@ -21,3 +21,7 @@
 /gen
 /proguard/
 /app/build/
+
+/library/libs
+/library/src/main/jniLibs
+/library/tmp
