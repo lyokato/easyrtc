@@ -51,6 +51,9 @@ task downloadLibWebRTCAAR << {
         dest 'tmp/libwebrtc.aar'
     }
 
+}
+
+task installLibWebRTCAAR << {
     copy {
         from zipTree("tmp/libwebrtc.aar")
         into file("tmp")
@@ -66,4 +69,5 @@ task downloadLibWebRTCAAR << {
     }
 }
 
-preBuild.dependsOn downloadLibWebRTCAAR
+installLibWebRTCAAR.dependsOn downloadLibWebRTCAAR
+preBuild.dependsOn installLibWebRTCAAR
