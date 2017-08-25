@@ -42,7 +42,7 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxjava:2.1.0'
 }
 
-task downloadLibWebRTCAAR << {
+task downloadLibWebRTCAAR {
 
     def aarURL = 'https://s3-ap-northeast-1.amazonaws.com/libwebrtc-test/libwebrtc.aar'
 
@@ -53,7 +53,7 @@ task downloadLibWebRTCAAR << {
 
 }
 
-task installLibWebRTCAAR << {
+task installLibWebRTCAAR {
     copy {
         from zipTree("tmp/libwebrtc.aar")
         into file("tmp")
