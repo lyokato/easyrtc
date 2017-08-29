@@ -46,36 +46,29 @@ task downloadLibWebRTCAAR {
 
     def aarURL = 'https://s3-ap-northeast-1.amazonaws.com/libwebrtc-test/libwebrtc.aar'
 
-    doLast {
-
-        download {
-            src aarURL
-            dest 'tmp/libwebrtc.aar'
-        }
-
+    download {
+        src aarURL
+        dest 'tmp/libwebrtc.aar'
     }
 
 }
 
 task installLibWebRTCAAR {
 
-    doLast {
-
-        copy {
-            from zipTree("tmp/libwebrtc.aar")
-            into file("tmp")
-        }
-
-        copy {
-            from 'tmp/jni'
-            into 'src/main/jniLibs'
-        }
-        copy {
-            from 'tmp/classes.jar'
-            into 'libs'
-        }
-
+    copy {
+        from zipTree("tmp/libwebrtc.aar")
+        into file("tmp")
     }
+
+    copy {
+        from 'tmp/jni'
+        into 'src/main/jniLibs'
+    }
+    copy {
+        from 'tmp/classes.jar'
+        into 'libs'
+    }
+
 }
 
 installLibWebRTCAAR.dependsOn downloadLibWebRTCAAR
