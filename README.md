@@ -20,7 +20,7 @@ Adds compile line in your application's build.gradle.
 ```gradle
 dependencies {
   // ...
-  compile 'com.github.lyokato:easyrtc:0.1.1:release@aar'
+  compile 'com.github.lyokato:easyrtc:0.1.6@aar'
 }
 ```
 
